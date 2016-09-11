@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="/static/css/chat.css">
+{%endblock%}
+
+{% block body %}
+    </script>
+    <div id="chat-interface">
+        <form id="chatform" method="post">
+            <h2>Speaking as <b class="error">{{name}}</b>.</h2>
+            <div id="chatbox"></div>
+            <textarea id="messagebox" name="message"></textarea>
+            <br>
+            <input type="submit" value="Enter">
+        </form>
+    </div>
+
+    <script type="text/javascript" src="/_ah/channel/jsapi"></script>
+
+    <script type="text/javascript">
+        var token = '{{token}}';
+        var chatlog = {{chatlog | safe}};
+        var name = '{{name}}'
+    </script>
+
+    <script type="text/javascript" src="/static/js/chat.js"></script>
+{% endblock %}
